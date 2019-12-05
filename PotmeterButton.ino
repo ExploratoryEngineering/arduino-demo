@@ -65,9 +65,9 @@ void handleButtonPress() {
     Serial.print(val);
     Serial.println();
     if (nbiot.isConnected()) {
-      byte buf[2];
-      buf[0] = (byte)(val & 0xFF);
-      buf[1] = (byte)((val & 0xFF00) >> 8);
+      char buf[2];
+      buf[0] = (char)(val & 0xFF);
+      buf[1] = (char)((val & 0xFF00) >> 8);
       if (nbiot.sendBytes(remoteIP, REMOTE_PORT, buf, 2)) {
         blinkLED();        
       } else {
